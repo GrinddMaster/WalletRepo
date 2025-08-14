@@ -7,7 +7,7 @@ Add styling to all the buttons from outside style files.
 import { ref } from 'vue'
 import { Transactions } from '../../modules/Transaction_List/models/Transaction.js'
 
-var current_balance = ref('PlaceHolder for Current Balance')
+var current_balance = ref('PlaceHolder for Current Balance amount')
 var wallet_token = ref('Token string')
 const transactionList = ref(Transactions)
 </script>
@@ -18,7 +18,8 @@ const transactionList = ref(Transactions)
       <div id="balance" class="box center-box">
         <!-- Balance Div -->
         <div class="box">
-          <div id="Icon&Type" class="box icon-type">
+          <p><u>Current balance</u></p>
+          <div id="Icon&Type" class="icon-type">
             <!-- Here should add Components to the Balance div-->
             <div class="box">Icon</div>
             <div class="box">Icon type</div>
@@ -50,16 +51,19 @@ const transactionList = ref(Transactions)
     - Import Transaction Objects from the Taho Repo
     - Connect them to Dynamic elements in this list
     - Display the Transaction Objects on screen-->
-      <div
-        class="box"
-        style="width: 50%"
-        v-for="transaction in transactionList"
-        :key="transaction.hash"
-      >
-        <p>
-          <strong>Hash:</strong> {{ transaction.hash }}<br />
-          <strong>Amount:</strong> {{ transaction.amount }}
-        </p>
+      <div class="box center-box">
+        <p><u>Transaction History</u></p>
+        <div
+          class="box"
+          style="width: 50%; margin-bottom: 12px; border-radius: 25px"
+          v-for="transaction in transactionList"
+          :key="transaction.hash"
+        >
+          <p>
+            <strong>Hash:</strong> {{ transaction.hash }}<br />
+            <strong>Amount:</strong> {{ transaction.amount }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -90,7 +94,7 @@ const transactionList = ref(Transactions)
 .icon-type {
   display: flex;
   gap: 15px;
-  width: 50%;
+  width: 70%;
   align-items: center;
 }
 </style>
