@@ -7,6 +7,7 @@ Add styling to all the buttons from outside style files.
 import { ref } from 'vue'
 import { Transactions } from '../../modules/Transaction_List/models/Transaction.js'
 import HistoryOverlay from '../components/HistoryOverlay.vue'
+import TransactionList from '../components/TransactionList.vue'
 
 var current_balance = ref('PlaceHolder for Current Balance amount')
 var wallet_token = ref('Token string')
@@ -52,18 +53,7 @@ function toggleOverlay() {
 
     <div id="transaction_list" class="box">
       <div class="box center-box">
-        <p><u>Transaction History</u></p>
-        <div
-          class="box"
-          style="width: 50%; margin-bottom: 12px; border-radius: 25px"
-          v-for="transaction in transactionList"
-          :key="transaction.hash"
-        >
-          <p>
-            <strong>Hash:</strong> {{ transaction.hash }}<br />
-            <strong>Amount:</strong> {{ transaction.amount }}
-          </p>
-        </div>
+        <TransactionList :transaction_list="transactionList"> </TransactionList>
         <button style="border-radius: 20px" @click="toggleOverlay">expand</button>
         <HistoryOverlay
           :visible="historyOverlay"
