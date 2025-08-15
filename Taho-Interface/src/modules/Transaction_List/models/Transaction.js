@@ -22,4 +22,30 @@ const Test_T4 = {
   amount: 0.85891,
 }
 
-export const Transactions = [Test_T1, Test_T2, Test_T3, Test_T4]
+const Test_T5 = {
+  hash: 'this is a test hash 4',
+
+  amount: 0.85891,
+}
+
+const Test_T6 = {
+  hash: 'this is a test hash 4',
+
+  amount: 0.85891,
+}
+const Test_T7 = {
+  hash: 'this is a test hash 4',
+
+  amount: 0.85891,
+}
+const Test_T8 = {
+  hash: 'this is a test hash 4',
+
+  amount: 0.85891,
+}
+const Test_T9 = {
+  hash: 'this is a test hash 4',
+
+  amount: 0.85891,
+}
+export const Transactions = [Test_T1, Test_T2, Test_T3, Test_T4, Test_T5]

@@ -10,6 +10,10 @@ import { Transactions } from '../../modules/Transaction_List/models/Transaction.
 var current_balance = ref('PlaceHolder for Current Balance amount')
 var wallet_token = ref('Token string')
 const transactionList = ref(Transactions)
+const historyOverlay = ref(false)
+function toggleOverlay() {
+  historyOverlay.value = !historyOverlay.value
+}
 </script>
 <template>
   <div>
@@ -25,14 +29,14 @@ const transactionList = ref(Transactions)
             <div class="box">Icon type</div>
           </div>
           <br />
-          <p :id="'${current_balance}'">{{ current_balance }}</p>
+          <p :id="'current_balance'">{{ current_balance }}</p>
         </div>
       </div>
       <div id="preform_transaction" class="box center-box">
         <!-- Transaction Div-->
         <div class="box center-box" style="width: 80%">
           <div>
-            <span :id="'${wallet_token}'">{{ wallet_token }} - </span>
+            <span :id="'wallet_token'">{{ wallet_token }} - </span>
             <button id="copy_wallet_token" style="border-radius: 20px; border: 1px">Copy</button>
           </div>
           <br />
@@ -46,11 +50,6 @@ const transactionList = ref(Transactions)
     <br />
 
     <div id="transaction_list" class="box">
-      <!-- List Div -->
-      <!-- TODO:
-    - Import Transaction Objects from the Taho Repo
-    - Connect them to Dynamic elements in this list
-    - Display the Transaction Objects on screen-->
       <div class="box center-box">
         <p><u>Transaction History</u></p>
         <div
@@ -63,6 +62,24 @@ const transactionList = ref(Transactions)
             <strong>Hash:</strong> {{ transaction.hash }}<br />
             <strong>Amount:</strong> {{ transaction.amount }}
           </p>
+        </div>
+        <button style="border-radius: 20px" @click="toggleOverlay">expand</button>
+        <div v-if="historyOverlay" class="history_screen">
+          <div class="history_content">
+            <h3>Transaction History</h3>
+            <div
+              class="box"
+              style="width: 50%; margin-bottom: 12px; border-radius: 25px"
+              v-for="transaction in transactionList"
+              :key="transaction.hash"
+            >
+              <p>
+                <strong>Hash:</strong> {{ transaction.hash }}<br />
+                <strong>Amount:</strong> {{ transaction.amount }}
+              </p>
+            </div>
+            <button @click="toggleOverlay">Close</button>
+          </div>
         </div>
       </div>
     </div>
@@ -96,5 +113,26 @@ const transactionList = ref(Transactions)
   gap: 15px;
   width: 70%;
   align-items: center;
+}
+.history_screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.history_content {
+  background: white;
+  padding: 20px;
+  width: 30%;
+  height: 60%;
+  border-radius: 12px;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 </style>
