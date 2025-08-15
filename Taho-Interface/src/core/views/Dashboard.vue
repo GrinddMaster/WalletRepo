@@ -6,11 +6,12 @@ Add styling to all the buttons from outside style files.
 <script setup>
 import { ref } from 'vue'
 import { Transactions } from '../../modules/Transaction_List/models/Transaction.js'
+import HistoryOverlay from '../components/HistoryOverlay.vue'
 
 var current_balance = ref('PlaceHolder for Current Balance amount')
 var wallet_token = ref('Token string')
 const transactionList = ref(Transactions)
-const historyOverlay = ref(false)
+const historyOverlay = ref(false) //Import this from a hidden file.
 function toggleOverlay() {
   historyOverlay.value = !historyOverlay.value
 }
@@ -64,23 +65,12 @@ function toggleOverlay() {
           </p>
         </div>
         <button style="border-radius: 20px" @click="toggleOverlay">expand</button>
-        <div v-if="historyOverlay" class="history_screen">
-          <div class="history_content">
-            <h3>Transaction History</h3>
-            <div
-              class="box"
-              style="width: 50%; margin-bottom: 12px; border-radius: 25px"
-              v-for="transaction in transactionList"
-              :key="transaction.hash"
-            >
-              <p>
-                <strong>Hash:</strong> {{ transaction.hash }}<br />
-                <strong>Amount:</strong> {{ transaction.amount }}
-              </p>
-            </div>
-            <button @click="toggleOverlay">Close</button>
-          </div>
-        </div>
+        <HistoryOverlay
+          :visible="historyOverlay"
+          :transactions="transactionList"
+          @close="toggleOverlay"
+        >
+        </HistoryOverlay>
       </div>
     </div>
   </div>
@@ -113,26 +103,5 @@ function toggleOverlay() {
   gap: 15px;
   width: 70%;
   align-items: center;
-}
-.history_screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.history_content {
-  background: white;
-  padding: 20px;
-  width: 30%;
-  height: 60%;
-  border-radius: 12px;
-  max-height: 80vh;
-  overflow-y: auto;
 }
 </style>
