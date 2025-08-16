@@ -23,29 +23,29 @@ const Test_T4 = {
 }
 
 const Test_T5 = {
-  hash: 'this is a test hash 4',
+  hash: 'this is a test hash 5',
 
   amount: 0.85891,
 }
 
 const Test_T6 = {
-  hash: 'this is a test hash 4',
+  hash: 'this is a test hash 6',
 
   amount: 0.85891,
 }
 const Test_T7 = {
-  hash: 'this is a test hash 4',
+  hash: 'this is a test hash 7',
 
   amount: 0.85891,
 }
 const Test_T8 = {
-  hash: 'this is a test hash 4',
+  hash: 'this is a test hash 8',
 
   amount: 0.85891,
 }
 const Test_T9 = {
-  hash: 'this is a test hash 4',
+  hash: 'this is a test hash 9',
 
   amount: 0.85891,
 }
-export const Transactions = [Test_T1, Test_T2, Test_T3, Test_T4]
+export const Transactions = [Test_T1, Test_T2, Test_T3, Test_T4, Test_T5, Test_T6, Test_T7]

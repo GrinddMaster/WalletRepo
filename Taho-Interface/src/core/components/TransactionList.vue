@@ -9,10 +9,11 @@ const store = useTransactionStore()
   <div
     class="box"
     style="width: 50%; margin-bottom: 12px; border-radius: 25px"
-    v-for="transaction in store.transactions"
+    v-for="transaction in store.limitTransactions"
     :key="transaction.hash"
   >
-    <p>
+    <h2 v-if="transaction.placeholder" style="text-align: center; font-weight: bold">...</h2>
+    <p v-else>
       <strong>Hash:</strong> {{ transaction.hash }}<br />
       <strong>Amount:</strong> {{ transaction.amount }}
     </p>
