@@ -5,11 +5,14 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['close'])
+function closeOverlay() {
+  emit('close')
+}
 </script>
 
 <template>
-  <div v-if="visible" class="history_screen">
-    <div class="history_content">
+  <div v-if="visible" class="history_screen" @click="closeOverlay">
+    <div class="history_content" @click.stop>
       <h3>Transaction History</h3>
       <div
         class="box"
