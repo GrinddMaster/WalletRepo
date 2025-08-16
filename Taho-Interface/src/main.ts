@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import 'vue3-virtual-scroller/dist/vue3-virtual-scroller.css'
 
 import App from './core/views/Dashboard.vue'
 import router from './router'

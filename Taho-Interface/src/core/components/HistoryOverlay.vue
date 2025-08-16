@@ -1,4 +1,6 @@
 <script setup>
+import { RecycleScroller } from 'vue3-virtual-scroller'
+
 const props = defineProps({
   transactions: { type: Array, required: true },
   visible: { type: Boolean, required: true, default: false },
@@ -13,19 +15,31 @@ function closeOverlay() {
 <template>
   <div v-if="visible" class="history_screen" @click="closeOverlay">
     <div class="history_content" @click.stop>
-      <h3>Transaction History</h3>
-      <div
-        class="box"
-        style="width: 50%; margin-bottom: 12px; border-radius: 25px"
-        v-for="transaction in transactions"
-        :key="transaction.hash"
-      >
-        <p>
-          <strong>Hash:</strong> {{ transaction.hash }}<br />
-          <strong>Amount:</strong> {{ transaction.amount }}
-        </p>
+      <div class="box" style="display: flex; flex-direction: row">
+        <div style="width: 50%">
+          <RecycleScroller
+            :items="transactions"
+            :item-size="105"
+            key-field="hash"
+            style="max-height: 100%; overflow-y: auto"
+          >
+            <template #default="{ item }">
+              <div class="box" style="margin-bottom: 12px; border-radius: 25px">
+                <p>
+                  <strong>Hash:</strong> {{ item.hash }}<br />
+                  <strong>Amount:</strong> {{ item.amount }}
+                </p>
+              </div>
+            </template>
+          </RecycleScroller>
+
+          <button @click="emit('close')" style="border-radius: 20px">Close</button>
+        </div>
+
+        <div class="" style="display: flex; align-items: center; justify-content: center; flex: 1">
+          <p>Icon</p>
+        </div>
       </div>
-      <button @click="emit('close')" style="border-radius: 20px">Close</button>
     </div>
   </div>
 </template>
@@ -49,9 +63,13 @@ function closeOverlay() {
   width: 30%;
   height: 60%;
   border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   max-height: 80vh;
   overflow-y: auto;
 }
+
 .box {
   border: 1px solid black;
   border-radius: 8px;
