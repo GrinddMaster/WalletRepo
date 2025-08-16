@@ -1,8 +1,7 @@
 <script setup>
-import { defineProps } from 'vue'
-const props = defineProps({
-  transaction_list: { type: Array, required: true },
-})
+import { useTransactionStore } from './stores/transaction_store.js'
+
+const store = useTransactionStore()
 </script>
 
 <template>
@@ -10,7 +9,7 @@ const props = defineProps({
   <div
     class="box"
     style="width: 50%; margin-bottom: 12px; border-radius: 25px"
-    v-for="transaction in transaction_list"
+    v-for="transaction in store.transactions"
     :key="transaction.hash"
   >
     <p>

@@ -13,6 +13,7 @@ var current_balance = ref('PlaceHolder for Current Balance amount')
 var wallet_token = ref('Token string')
 const transactionList = ref(Transactions)
 const historyOverlay = ref(false) //Import this from a hidden file.
+
 function toggleOverlay() {
   historyOverlay.value = !historyOverlay.value
 }
@@ -31,7 +32,7 @@ function toggleOverlay() {
             <div class="box">Icon type</div>
           </div>
           <br />
-          <p :id="'current_balance'">{{ current_balance }}</p>
+          <p :id="current_balance">{{ current_balance }}</p>
         </div>
       </div>
       <div id="preform_transaction" class="box center-box">
@@ -51,10 +52,12 @@ function toggleOverlay() {
 
     <br />
 
-    <div id="transaction_list" class="box">
+    <div class="box">
       <div class="box center-box">
-        <TransactionList :transaction_list="transactionList"> </TransactionList>
+        <TransactionList> </TransactionList>
+
         <button style="border-radius: 20px" @click="toggleOverlay">expand</button>
+
         <HistoryOverlay
           :visible="historyOverlay"
           :transactions="transactionList"
