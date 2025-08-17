@@ -4,15 +4,27 @@ export const Transactions = [
     amount: 0.1243,
   },
   {
-    hash: '0x5c51b7af2533504eab84f7f23d21918660fbb78d',
+    hash: '0x5c51b7af2533504eab84f7f23d21918660fbb78q',
     amount: 0.2094,
   },
   {
-    hash: 'this is a test hash 3',
+    hash: '0x5c51b7af2533504eab84f7f23d21918660fbb78a',
     amount: 0.1094,
   },
   {
-    hash: 'this is a test hash 4',
+    hash: '0x5c51b7af2533504eab84f7f23d21918660fbb786',
+    amount: 0.85891,
+  },
+  {
+    hash: '0x5c51b7af2533504eab84f7f23d21918660fbb787',
+    amount: 0.85891,
+  },
+  {
+    hash: '0x5c51b7af2533504eab84f7f23d21918660fbb788',
+    amount: 0.85891,
+  },
+  {
+    hash: '0x5c51b7af2533504eab84f7f23d21918660fbb780',
     amount: 0.85891,
   },
 ]

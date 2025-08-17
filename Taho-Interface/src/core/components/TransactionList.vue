@@ -12,7 +12,13 @@ const store = useTransactionStore()
     v-for="transaction in store.limitTransactions"
     :key="transaction.hash"
   >
-    <h2 v-if="transaction.placeholder" style="text-align: center; font-weight: bold">...</h2>
+    <h2
+      v-if="transaction.placeholder"
+      style="text-align: center; font-weight: bold"
+      @click="$emit('expand')"
+    >
+      ...
+    </h2>
     <p v-else>
       <strong>Hash:</strong> {{ transaction.hash }}<br />
       <strong>Amount:</strong> {{ transaction.amount }}

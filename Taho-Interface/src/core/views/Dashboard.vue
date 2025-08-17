@@ -55,10 +55,7 @@ function toggleOverlay() {
 
     <div class="box">
       <div class="box center-box">
-        <TransactionList> </TransactionList>
-
-        <button style="border-radius: 20px" @click="toggleOverlay">expand</button>
-
+        <TransactionList @expand="toggleOverlay"> </TransactionList>
         <HistoryOverlay
           :visible="historyOverlay"
           :transactions="transactionList"
