@@ -15,29 +15,25 @@ function closeOverlay() {
 <template>
   <div v-if="visible" class="history_screen" @click="closeOverlay">
     <div class="history_content" @click.stop>
-      <div class="box" style="display: flex; flex-direction: row">
-        <div style="width: 50%">
+      <div class="box" style="display: flex; flex-direction: row; flex: 1">
+        <div style="width: 100%">
           <RecycleScroller
             :items="transactions"
-            :item-size="105"
+            :item-size="150"
             key-field="hash"
-            style="max-height: 100%; overflow-y: auto"
+            style="max-height: 100%; overflow-y: auto; max-width: 100%; flex: 1"
           >
             <template #default="{ item }">
               <div class="box" style="margin-bottom: 12px; border-radius: 25px">
                 <p>
                   <strong>Hash:</strong> {{ item.hash }}<br />
-                  <strong>Amount:</strong> {{ item.amount }}
+                  <strong>Amount:</strong>{{ item.amount }}
                 </p>
               </div>
             </template>
           </RecycleScroller>
 
           <button @click="emit('close')" style="border-radius: 20px">Close</button>
-        </div>
-
-        <div class="" style="display: flex; align-items: center; justify-content: center; flex: 1">
-          <p>Icon</p>
         </div>
       </div>
     </div>

@@ -9,8 +9,8 @@ import { Transactions } from '../../modules/Transaction_List/models/Transaction.
 import HistoryOverlay from '../components/HistoryOverlay.vue'
 import TransactionList from '../components/TransactionList.vue'
 
-var current_balance = ref('PlaceHolder for Current Balance amount')
-var wallet_token = ref('Token string')
+var current_balance = ref('20.40$')
+var wallet_token = ref('0x5c51b7af2533504eab84f7f23d21918660fbb78d')
 const transactionList = ref(Transactions)
 const historyOverlay = ref(false) //Import this from a hidden file.
 
@@ -24,15 +24,16 @@ function toggleOverlay() {
     <div style="display: flex; gap: 10px">
       <div id="balance" class="box center-box">
         <!-- Balance Div -->
-        <div class="box">
-          <p><u>Current balance</u></p>
+        <div class="box" style="width: 30%">
+          <p style="text-align: center"><u>Total account balance</u></p>
+          <div><p>Hello world</p></div>
           <div id="Icon&Type" class="icon-type">
             <!-- Here should add Components to the Balance div-->
             <div class="box">Icon</div>
-            <div class="box">Icon type</div>
+            <div class="box">
+              <p :id="current_balance">{{ current_balance }}</p>
+            </div>
           </div>
-          <br />
-          <p :id="current_balance">{{ current_balance }}</p>
         </div>
       </div>
       <div id="preform_transaction" class="box center-box">
@@ -44,7 +45,7 @@ function toggleOverlay() {
           </div>
           <br />
           <div style="display: flex; min-height: 40px; border-radius: 20px">
-            <button class="full-button">Begin Transaction</button>
+            <button class="full-button">Preform Transactions</button>
           </div>
         </div>
       </div>
