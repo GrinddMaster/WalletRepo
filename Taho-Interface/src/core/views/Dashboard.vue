@@ -27,7 +27,7 @@ function toggleOverlay() {
         <!-- Balance Div -->
         <div class="box" style="width: 30%">
           <p style="text-align: center"><u>Total account balance</u></p>
-          <div style="display: flex">
+          <div style="display: flex; margin-bottom: 5%">
             <Mainnetoptions></Mainnetoptions>
           </div>
           <div id="Icon&Type" class="icon-type">

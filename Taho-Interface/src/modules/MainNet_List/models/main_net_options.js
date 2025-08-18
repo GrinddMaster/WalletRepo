@@ -11,4 +11,8 @@ export const optionList = [
     icon: '🟡',
     name: 'BnB Chain',
   },
+  {
+    icon: '⚡',
+    name: 'Mezo Matsnet',
+  },
 ]

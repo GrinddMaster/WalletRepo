@@ -2,7 +2,7 @@ import { ref, computed } from 'vue'
 import { Transactions } from '../modules/Transaction_List/models/Transaction.js'
 import { defineStore } from 'pinia'
 
-export const useTransactionStore = defineStore('transactionStore', () => {
+export var useTransactionStore = defineStore('transactionStore', () => {
   const transactions = ref(Transactions) // your initial data
 
   function addTransaction(tx) {

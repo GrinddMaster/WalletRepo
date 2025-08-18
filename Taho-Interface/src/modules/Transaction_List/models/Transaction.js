@@ -1,4 +1,4 @@
-export const Transactions = [
+export var Transactions = [
   {
     hash: '0x5c51b7af2533504eab84f7f23d21918660fbb78d',
     amount: 0.1243,
