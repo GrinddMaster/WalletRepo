@@ -15,7 +15,7 @@ function closeOverlay() {
 <template>
   <div v-if="visible" class="history_screen" @click="closeOverlay">
     <div class="history_content" @click.stop>
-      <div class="box" style="display: flex; flex-direction: row; flex: 1">
+      <div  style="display: flex; flex-direction: row; flex: 1">
         <div style="width: 90%">
           <RecycleScroller
             :items="transactions"

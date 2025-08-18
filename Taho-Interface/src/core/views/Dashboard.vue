@@ -8,11 +8,12 @@ import { ref } from 'vue'
 import { Transactions } from '../../modules/Transaction_List/models/Transaction.js'
 import HistoryOverlay from '../components/HistoryOverlay.vue'
 import TransactionList from '../components/TransactionList.vue'
+import Mainnetoptions from '../components/Mainnet_options.vue'
 
 var current_balance = ref('20.40$')
 var wallet_token = ref('0x5c51b7af2533504eab84f7f23d21918660fbb78d')
 const transactionList = ref(Transactions)
-const historyOverlay = ref(false) //Import this from a hidden file.
+const historyOverlay = ref(false)
 
 function toggleOverlay() {
   historyOverlay.value = !historyOverlay.value
@@ -26,7 +27,9 @@ function toggleOverlay() {
         <!-- Balance Div -->
         <div class="box" style="width: 30%">
           <p style="text-align: center"><u>Total account balance</u></p>
-          <div><p>Hello world</p></div>
+          <div style="display: flex">
+            <Mainnetoptions></Mainnetoptions>
+          </div>
           <div id="Icon&Type" class="icon-type">
             <!-- Here should add Components to the Balance div-->
             <div class="box">Icon</div>
