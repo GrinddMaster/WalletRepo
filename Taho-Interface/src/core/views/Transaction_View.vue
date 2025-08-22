@@ -1,0 +1,64 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const overlay = ref(false)
+
+function closeOverlay() {
+  overlay.value = false
+}
+
+function toggleOverlay() {
+  overlay.value = !overlay.value
+}
+</script>
+<template>
+  <div v-if="overlay" class="history_screen" @click="closeOverlay">
+    <div class="history_content" @click.stop>
+      <div style="display: flex; flex-direction: row; flex: 1">
+        <div style="width: 90%"></div>
+      </div>
+    </div>
+  </div>
+  <button class="full-button" @click="toggleOverlay">Preform Transactions</button>
+</template>
+<style>
+.history_screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.history_content {
+  background: white;
+  padding: 20px;
+  width: 65%;
+  height: 90%;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.box {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 60px;
+  flex: 1;
+}
+.full-button {
+  flex: 1;
+  border: 1px;
+  border-radius: 40px;
+  width: 100%;
+  height: 100%;
+}
+</style>

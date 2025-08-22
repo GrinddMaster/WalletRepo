@@ -45,7 +45,6 @@ function selectOption(option) {
     </div>
   </div>
 </template>
->
 
 <style scoped>
 .dropdown {

@@ -9,6 +9,7 @@ import { Transactions } from '../../modules/Transaction_List/models/Transaction.
 import HistoryOverlay from '../components/HistoryOverlay.vue'
 import TransactionList from '../components/TransactionList.vue'
 import Mainnetoptions from '../components/Mainnet_options.vue'
+import TransactionView from './Transaction_View.vue'
 
 var current_balance = ref('20.40$')
 var wallet_token = ref('0x5c51b7af2533504eab84f7f23d21918660fbb78d')
@@ -48,7 +49,7 @@ function toggleOverlay() {
           </div>
           <br />
           <div style="display: flex; min-height: 40px; border-radius: 20px">
-            <button class="full-button">Preform Transactions</button>
+            <TransactionView></TransactionView>
           </div>
         </div>
       </div>
