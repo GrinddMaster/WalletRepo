@@ -14,12 +14,19 @@ function toggleOverlay() {
 <template>
   <div v-if="overlay" class="transaction_screen" @click="closeOverlay">
     <div class="transaction_content" @click.stop>
-      <div style="display: flex; flex-direction: row; flex: 1">
-        <div style="width: 90%"></div>
+      <div style="display: flex; flex: 1; height: 95%">
+        <div class="barbox transactionBar">
+          <div class="box tabItem"></div>
+          <div class="box tabItem"></div>
+          <div class="box tabItem"></div>
+        </div>
+        <div class="box" style="align-items: center; justify-content: center"></div>
       </div>
     </div>
   </div>
-  <button class="full-button" @click="toggleOverlay">Preform Transactions</button>
+  <button class="full-button" style="cursor: pointer" @click="toggleOverlay">
+    Preform Transactions
+  </button>
 </template>
 <style>
 .transaction_screen {
@@ -54,11 +61,30 @@ function toggleOverlay() {
   min-height: 60px;
   flex: 1;
 }
+.barbox {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 60px;
+}
 .full-button {
   flex: 1;
   border: 1px;
   border-radius: 40px;
   width: 100%;
   height: 100%;
+}
+.transactionBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 20%;
+}
+.tabItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 </style>

@@ -14,7 +14,7 @@ const store = useTransactionStore()
   >
     <h2
       v-if="transaction.placeholder"
-      style="text-align: center; font-weight: bold"
+      style="text-align: center; font-weight: bold; cursor: pointer"
       @click="$emit('expand')"
     >
       ...

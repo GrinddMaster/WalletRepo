@@ -18,7 +18,10 @@ function selectOption(option) {
 
 <template>
   <div class="dropdown">
-    <button style="border-radius: 20px; border: 0px; min-height: 25px" @click="toggleOverlay">
+    <button
+      style="border-radius: 20px; border: 0px; min-height: 25px; cursor: pointer"
+      @click="toggleOverlay"
+    >
       {{ selected }}
     </button>
   </div>
@@ -34,7 +37,7 @@ function selectOption(option) {
           >
             <template #default="{ item }">
               <div style="margin-bottom: 12px; border-radius: 25px; display: flex">
-                <button class="full-button" @click="selectOption(item)">
+                <button class="full-button" @click="selectOption(item)" style="cursor: pointer">
                   {{ item.icon }} {{ item.name }}
                 </button>
               </div>
