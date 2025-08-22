@@ -12,8 +12,8 @@ function toggleOverlay() {
 }
 </script>
 <template>
-  <div v-if="overlay" class="history_screen" @click="closeOverlay">
-    <div class="history_content" @click.stop>
+  <div v-if="overlay" class="transaction_screen" @click="closeOverlay">
+    <div class="transaction_content" @click.stop>
       <div style="display: flex; flex-direction: row; flex: 1">
         <div style="width: 90%"></div>
       </div>
@@ -22,7 +22,7 @@ function toggleOverlay() {
   <button class="full-button" @click="toggleOverlay">Preform Transactions</button>
 </template>
 <style>
-.history_screen {
+.transaction_screen {
   position: fixed;
   top: 0;
   left: 0;
@@ -34,7 +34,7 @@ function toggleOverlay() {
   align-items: center;
 }
 
-.history_content {
+.transaction_content {
   background: white;
   padding: 20px;
   width: 65%;
