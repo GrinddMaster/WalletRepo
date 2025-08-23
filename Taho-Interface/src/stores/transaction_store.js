@@ -1,5 +1,5 @@
 import { ref, computed } from 'vue'
-import { Transactions } from '../modules/Transaction_List/models/Transaction.js'
+import { Transactions } from '@/modules/Transaction_List/models/Transaction.js'
 import { defineStore } from 'pinia'
 
 export var useTransactionStore = defineStore('transactionStore', () => {

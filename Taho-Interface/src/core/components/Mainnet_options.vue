@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { optionList } from '../../modules/MainNet_List/models/main_net_options.js'
+import { optionList } from '@/modules/MainNet_List/models/main_net_options.js'
 import { RecycleScroller } from 'vue3-virtual-scroller'
 
 const options = ref(optionList)

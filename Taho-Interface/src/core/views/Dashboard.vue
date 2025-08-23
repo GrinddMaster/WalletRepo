@@ -5,7 +5,7 @@ Add styling to all the buttons from outside style files.
 
 <script setup>
 import { ref } from 'vue'
-import { Transactions } from '../../modules/Transaction_List/models/Transaction.js'
+import { Transactions } from '@/modules/Transaction_List/models/Transaction.js'
 import HistoryOverlay from '../components/HistoryOverlay.vue'
 import TransactionList from '../components/TransactionList.vue'
 import Mainnetoptions from '../components/Mainnet_options.vue'

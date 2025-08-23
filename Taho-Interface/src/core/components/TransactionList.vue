@@ -1,5 +1,5 @@
 <script setup>
-import { useTransactionStore } from '../../stores/transaction_store.js'
+import { useTransactionStore } from '@/stores/transaction_store.js'
 
 const store = useTransactionStore()
 </script>
