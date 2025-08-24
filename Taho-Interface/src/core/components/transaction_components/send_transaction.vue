@@ -1,3 +1,7 @@
 <script></script>
-<template></template>
-<style></style>
+<template>
+  <div class="box">
+    <p>Send Transaction</p>
+  </div>
+</template>
+<style src="@/assets/styles/Box.css"></style>
