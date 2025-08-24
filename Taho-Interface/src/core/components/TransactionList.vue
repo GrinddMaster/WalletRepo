@@ -26,12 +26,4 @@ const store = useTransactionStore()
   </div>
 </template>
 
-<style>
-.box {
-  border: 1px solid black;
-  border-radius: 8px;
-  padding: 10px;
-  min-height: 60px;
-  flex: 1;
-}
-</style>
+<style src="@/assets/styles/Box.css"></style>

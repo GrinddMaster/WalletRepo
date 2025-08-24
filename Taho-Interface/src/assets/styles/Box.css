@@ -1,0 +1,7 @@
+.box {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 60px;
+  flex: 1;
+}

@@ -16,13 +16,13 @@ function toggleOverlay() {
     <div class="transaction_content" @click.stop>
       <div style="display: flex; flex: 1; height: 95%">
         <div class="barbox transactionBar">
-          <div class="box tabItem">
+          <div class="tabItem">
             <img src="@/assets/images/money.png" alt="Money" class="Bar-Icons" />
           </div>
-          <div class="box tabItem">
+          <div class="tabItem">
             <img src="@/assets/images/currency-exchange.png" alt="Exchange" class="Bar-Icons" />
           </div>
-          <div class="box tabItem">
+          <div class="tabItem">
             <img src="@/assets/images/receive-money.png" alt="Recieve" class="Bar-Icons" />
           </div>
         </div>
@@ -67,6 +67,13 @@ function toggleOverlay() {
   min-height: 60px;
   flex: 1;
 }
+.round-Icon {
+  display: flex;
+  border-radius: 100%;
+  border: 1px solid black;
+  min-width: 20%;
+  min-height: 20%;
+}
 .barbox {
   display: flex;
   border: 1px solid black;
@@ -92,12 +99,17 @@ function toggleOverlay() {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  margin: 10px auto;
 }
 .Bar-Icons {
   display: block;
   margin: 0 auto 0px auto;
-  max-width: 20%;
-  max-height: 20%;
+  max-width: 50%;
+  max-height: 50%;
   object-fit: contain;
 }
 </style>
