@@ -44,7 +44,9 @@ function toggleOverlay() {
         <!-- Transaction Div-->
         <div class="box center-box" style="width: 80%">
           <div>
-            <span :id="'wallet_token'">{{ wallet_token }} - </span>
+            <span :id="'wallet_token'" style="overflow-wrap: break-word"
+              >{{ wallet_token }} -
+            </span>
             <button id="copy_wallet_token" style="border-radius: 20px; border: 1px">Copy</button>
           </div>
           <br />
@@ -78,11 +80,13 @@ function toggleOverlay() {
   border-radius: 8px;
   padding: 10px;
   min-height: 60px;
+  overflow-wrap: break-word;
   flex: 1;
 }
 .center-box {
   display: flex;
   flex-direction: column;
+  overflow-wrap: break-word;
   justify-content: center;
   align-items: center;
 }

@@ -65,7 +65,7 @@ function toggleOverlay() {
 .transaction_content {
   background: white;
   padding: 20px;
-  width: 65%;
+  width: 70%;
   height: 90%;
   border-radius: 12px;
   justify-content: center;
@@ -92,7 +92,7 @@ function toggleOverlay() {
 .barbox {
   display: flex;
   border: 1px solid black;
-  border-radius: 8px;
+  border-radius: 58px;
   padding: 10px;
   min-height: 60px;
 }
