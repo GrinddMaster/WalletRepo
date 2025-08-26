@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { preform_Transaction } from '@/stores/preform_transaction.ts'
+import SendTransaction from '@/core/components/transaction_components/send_transaction.vue'
+import ReceiveTransaction from '@/core/components/transaction_components/receive_transaction.vue'
+import SwapTransaction from '@/core/components/transaction_components/swap_transaction.vue'
 
 const overlay = ref(false)
+const transaction_Preform = preform_Transaction()
 
 function closeOverlay() {
   overlay.value = false
@@ -16,17 +21,27 @@ function toggleOverlay() {
     <div class="transaction_content" @click.stop>
       <div style="display: flex; flex: 1; height: 95%">
         <div class="barbox transactionBar">
-          <div class="tabItem">
+          <div class="tabItem" @click="transaction_Preform.switchView('send')">
             <img src="@/assets/images/money.png" alt="Money" class="Bar-Icons" />
           </div>
-          <div class="tabItem">
+          <div class="tabItem" @click="transaction_Preform.switchView('swap')">
             <img src="@/assets/images/currency-exchange.png" alt="Exchange" class="Bar-Icons" />
           </div>
-          <div class="tabItem">
+          <div class="tabItem" @click="transaction_Preform.switchView('receive')">
             <img src="@/assets/images/receive-money.png" alt="Recieve" class="Bar-Icons" />
           </div>
         </div>
-        <div class="box" style="align-items: center; justify-content: center"></div>
+        <div class="box" style="align-items: center; display: flex; justify-content: center">
+          <component
+            :is="
+              transaction_Preform.currentView === 'send'
+                ? SendTransaction
+                : transaction_Preform.currentView === 'swap'
+                  ? SwapTransaction
+                  : ReceiveTransaction
+            "
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -101,8 +116,8 @@ function toggleOverlay() {
   cursor: pointer;
   border-radius: 50%;
   border: 1px solid black;
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   margin: 10px auto;
 }
 .Bar-Icons {

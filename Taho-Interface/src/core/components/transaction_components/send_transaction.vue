@@ -1,7 +1,7 @@
 <script></script>
 <template>
-  <div class="box">
+  <div>
     <p>Send Transaction</p>
   </div>
 </template>
-<style src="@/assets/styles/Box.css"></style>
+<style></style>
