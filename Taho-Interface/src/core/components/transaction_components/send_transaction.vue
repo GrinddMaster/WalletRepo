@@ -20,7 +20,9 @@
         />
       </div>
     </div>
-    <div class="send_box" id="SendIcon" style="margin-left: 23%"></div>
+    <div id="SendIcon" style="margin-left: 23%">
+      <img id="send_muny" src="@/assets/images/send_money.png" />
+    </div>
     <div class="send_box">
       <input id="hash-input-box" type="text" placeholder="0x..." />
     </div>
@@ -38,8 +40,12 @@
   flex: 1;
 }
 #SendIcon {
-  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
   width: 50%;
+  margin: 10px auto;
 }
 #send_field {
   border: 1px solid black;
@@ -74,5 +80,14 @@ input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+#send_muny {
+  display: block;
+  margin: 0 auto 0px auto;
+  transform: scaleY(-1);
+  max-width: 17%;
+  max-height: 17%;
+  cursor: pointer;
+  object-fit: contain;
 }
 </style>

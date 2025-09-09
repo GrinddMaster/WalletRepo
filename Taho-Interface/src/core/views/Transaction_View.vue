@@ -23,11 +23,14 @@ function toggleOverlay() {
         <div class="barbox transactionBar">
           <div class="tabItem" @click="transaction_Preform.switchView('send')">
             <img src="@/assets/images/money.png" alt="Money" class="Bar-Icons" />
+            <div class="info-box">send assets</div>
           </div>
           <div class="tabItem" @click="transaction_Preform.switchView('swap')">
             <img src="@/assets/images/currency-exchange.png" alt="Exchange" class="Bar-Icons" />
+            <div class="info-box">swap assets</div>
           </div>
           <div class="tabItem" @click="transaction_Preform.switchView('receive')">
+            <div class="info-box">receive assets</div>
             <img src="@/assets/images/receive-money.png" alt="Recieve" class="Bar-Icons" />
           </div>
         </div>
@@ -111,6 +114,7 @@ function toggleOverlay() {
 }
 .tabItem {
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -126,5 +130,24 @@ function toggleOverlay() {
   max-width: 50%;
   max-height: 50%;
   object-fit: contain;
+}
+.info-box {
+  position: absolute;
+  bottom: 110%; /* place above the box */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0; /* hidden by default */
+  pointer-events: none; /* so it doesn’t block hover */
+  transition: opacity 0.3s ease;
+}
+
+.tabItem:hover .info-box {
+  opacity: 1; /* show on hover */
+  pointer-events: auto;
 }
 </style>
