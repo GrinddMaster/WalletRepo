@@ -47,7 +47,12 @@ function toggleOverlay() {
             <span :id="'wallet_token'" style="overflow-wrap: break-word"
               >{{ wallet_token }} -
             </span>
-            <button id="copy_wallet_token" style="border-radius: 20px; border: 1px">Copy</button>
+            <button
+              id="copy_wallet_token"
+              style="border-radius: 20px; border: 1px; cursor: pointer"
+            >
+              Copy
+            </button>
           </div>
           <br />
           <div style="display: flex; min-height: 40px; border-radius: 20px">
