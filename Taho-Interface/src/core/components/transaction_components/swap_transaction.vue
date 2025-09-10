@@ -3,7 +3,7 @@
   <div class="send_box" style="flex-direction: column">
     <div class="send_box">
       <div id="send_field">
-        <span>Icon Text</span>
+        <span>Icon Mainnet</span>
       </div>
       <div style="width: 70%">
         <input
@@ -25,7 +25,7 @@
     </div>
     <div class="send_box">
       <div id="send_field">
-        <span>Icon Text</span>
+        <span>Icon Mainnet</span>
       </div>
       <div style="width: 70%">
         <input
@@ -44,14 +44,4 @@
     </div>
   </div>
 </template>
-<style>
-.swap_box {
-  border: 1px solid black;
-  border-radius: 8px;
-  padding: 10px;
-  min-height: 60px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-</style>
+<style src="@/assets/styles/prefrom_transaction/swap_view.css"></style>
