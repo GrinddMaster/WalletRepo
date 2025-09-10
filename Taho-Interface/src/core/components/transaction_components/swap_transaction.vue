@@ -1,4 +1,11 @@
-<script></script>
+<script>
+import { ref } from 'vue'
+var toggle = ref(false)
+
+function toggleDropDown() {
+  toggle.value = !toggle.value
+}
+</script>
 <template>
   <div class="send_box" style="flex-direction: column">
     <div class="send_box">
