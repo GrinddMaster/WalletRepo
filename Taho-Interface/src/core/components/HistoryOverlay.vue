@@ -61,6 +61,7 @@ function closeOverlay() {
   align-items: center;
   flex-direction: row;
   max-height: 80vh;
+  min-width: 400px;
   overflow-y: auto;
 }
 
@@ -69,6 +70,7 @@ function closeOverlay() {
   border-radius: 8px;
   padding: 10px;
   min-height: 60px;
+  overflow-wrap: break-word;
   flex: 1;
 }
 </style>

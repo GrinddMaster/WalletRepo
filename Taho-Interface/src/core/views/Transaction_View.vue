@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { preform_Transaction } from '@/stores/preform_transaction.ts'
+import SendTransaction from '@/core/components/transaction_components/send_transaction.vue'
+import ReceiveTransaction from '@/core/components/transaction_components/receive_transaction.vue'
+import SwapTransaction from '@/core/components/transaction_components/swap_transaction.vue'
 
 const overlay = ref(false)
+const transaction_Preform = preform_Transaction()
 
 function closeOverlay() {
   overlay.value = false
@@ -16,17 +21,30 @@ function toggleOverlay() {
     <div class="transaction_content" @click.stop>
       <div style="display: flex; flex: 1; height: 95%">
         <div class="barbox transactionBar">
-          <div class="box tabItem">
+          <div class="tabItem" @click="transaction_Preform.switchView('send')">
             <img src="@/assets/images/money.png" alt="Money" class="Bar-Icons" />
+            <div class="info-box">send assets</div>
           </div>
-          <div class="box tabItem">
+          <div class="tabItem" @click="transaction_Preform.switchView('swap')">
             <img src="@/assets/images/currency-exchange.png" alt="Exchange" class="Bar-Icons" />
+            <div class="info-box">swap assets</div>
           </div>
-          <div class="box tabItem">
+          <div class="tabItem" @click="transaction_Preform.switchView('receive')">
+            <div class="info-box">receive assets</div>
             <img src="@/assets/images/receive-money.png" alt="Recieve" class="Bar-Icons" />
           </div>
         </div>
-        <div class="box" style="align-items: center; justify-content: center"></div>
+        <div class="box" style="align-items: center; display: flex; justify-content: center">
+          <component
+            :is="
+              transaction_Preform.currentView === 'send'
+                ? SendTransaction
+                : transaction_Preform.currentView === 'swap'
+                  ? SwapTransaction
+                  : ReceiveTransaction
+            "
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -50,7 +68,7 @@ function toggleOverlay() {
 .transaction_content {
   background: white;
   padding: 20px;
-  width: 65%;
+  width: 70%;
   height: 90%;
   border-radius: 12px;
   justify-content: center;
@@ -67,10 +85,17 @@ function toggleOverlay() {
   min-height: 60px;
   flex: 1;
 }
+.round-Icon {
+  display: flex;
+  border-radius: 100%;
+  border: 1px solid black;
+  min-width: 20%;
+  min-height: 20%;
+}
 .barbox {
   display: flex;
   border: 1px solid black;
-  border-radius: 8px;
+  border-radius: 58px;
   padding: 10px;
   min-height: 60px;
 }
@@ -89,15 +114,40 @@ function toggleOverlay() {
 }
 .tabItem {
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid black;
+  width: 90px;
+  height: 90px;
+  margin: 10px auto;
 }
 .Bar-Icons {
   display: block;
   margin: 0 auto 0px auto;
-  max-width: 20%;
-  max-height: 20%;
+  max-width: 50%;
+  max-height: 50%;
   object-fit: contain;
+}
+.info-box {
+  position: absolute;
+  bottom: 110%; /* place above the box */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0; /* hidden by default */
+  pointer-events: none; /* so it doesn’t block hover */
+  transition: opacity 0.3s ease;
+}
+
+.tabItem:hover .info-box {
+  opacity: 1; /* show on hover */
+  pointer-events: auto;
 }
 </style>
