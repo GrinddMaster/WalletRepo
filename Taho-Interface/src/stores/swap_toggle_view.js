@@ -9,5 +9,5 @@ export var netOptions = defineStore('netOptions', () => {
   function netSelection(net) {
     selected_net.value = net
   }
-  return { selected_net, netSelection }
+  return { nets, selected_net, netSelection }
 })

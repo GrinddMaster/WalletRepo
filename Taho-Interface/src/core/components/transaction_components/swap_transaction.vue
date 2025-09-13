@@ -1,6 +1,10 @@
-<script>
+<script setup>
 import { ref } from 'vue'
+import SwapDropView from './Component_Elements/swap_dropdown_view.vue'
+import { netOptions } from '@/stores/swap_toggle_view'
+
 var toggle = ref(false)
+const store = netOptions()
 
 function toggleDropDown() {
   toggle.value = !toggle.value
@@ -9,8 +13,9 @@ function toggleDropDown() {
 <template>
   <div class="send_box" style="flex-direction: column">
     <div class="send_box">
-      <div id="send_field">
-        <span>Icon Mainnet</span>
+      <div id="send_field" @click="toggleDropDown">
+        <SwapDropView v-if="toggle" @close="toggleDropDown" />
+        <span>{{ store.selected_net }}</span>
       </div>
       <div style="width: 70%">
         <input
