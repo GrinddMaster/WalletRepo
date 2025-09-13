@@ -3,18 +3,28 @@ import { ref } from 'vue'
 import SwapDropView from './Component_Elements/swap_dropdown_view.vue'
 import { netOptions } from '@/stores/swap_toggle_view'
 
-var toggle = ref(false)
+var toggleSend = ref(false)
+var toggleRecieve = ref(false)
 const store = netOptions()
 
-function toggleDropDown() {
-  toggle.value = !toggle.value
+function toggleDropDown(type) {
+  if (type === dropDownType.SEND) {
+    toggleSend.value = !toggleSend.value
+  } else {
+    toggleRecieve.value = !toggleRecieve.value
+  }
+}
+
+var dropDownType = {
+  SEND: 0,
+  RECIEVE: 1,
 }
 </script>
 <template>
   <div class="send_box" style="flex-direction: column">
     <div class="send_box">
-      <div id="send_field" @click="toggleDropDown">
-        <SwapDropView v-if="toggle" @close="toggleDropDown" />
+      <div id="send_field" @click="toggleDropDown(dropDownType.SEND)">
+        <SwapDropView v-if="toggleSend" @close="toggleDropDown(dropDownType.SEND)" type="send" />
         <span>{{ store.selected_net }}</span>
       </div>
       <div style="width: 70%">
@@ -36,8 +46,13 @@ function toggleDropDown() {
       <img id="send_muny" src="@/assets/images/swap.png" />
     </div>
     <div class="send_box">
-      <div id="send_field">
-        <span>Icon Mainnet</span>
+      <div id="send_field" @click="toggleDropDown(dropDownType.RECIEVE)">
+        <SwapDropView
+          v-if="toggleRecieve"
+          @close="toggleDropDown(dropDownType.RECIEVE)"
+          type="recieve"
+        />
+        <span>{{ store.selected_net_recieve }}</span>
       </div>
       <div style="width: 70%">
         <input

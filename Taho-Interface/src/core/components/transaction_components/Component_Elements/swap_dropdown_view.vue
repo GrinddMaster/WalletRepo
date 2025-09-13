@@ -4,12 +4,25 @@ import { ref } from 'vue'
 import { netOptions } from '@/stores/swap_toggle_view.js'
 
 const store = netOptions()
+const props = defineProps({
+  type: {
+    type: String,
+    required: true,
+  },
+})
 </script>
 <template>
   <div class="ddw" style="display: flex; max-width: 80px; max-height: 80px">
     <RecycleScroller :items="store.nets" :item-size="50" key-field="name" class="dd">
       <template #default="{ item }">
-        <div class="option" @click="store.netSelection(`${item.icon} ${item.name}`)">
+        <div
+          class="option"
+          @click="
+            props.type == 'send'
+              ? store.netSelection(`${item.icon} ${item.name}`)
+              : store.netSelectionRecieve(`${item.icon} ${item.name}`)
+          "
+        >
           <span>{{ item.icon }} {{ item.name }}</span>
         </div>
       </template>
